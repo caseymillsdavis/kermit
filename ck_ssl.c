@@ -560,7 +560,7 @@ X509_STORE_CTX *ctx;
                            "\n    notAfter=",ssl_err,
                            NULL,NULL,NULL,NULL,NULL,NULL);
                 uq_ok(prefix, "Rejecting Connection", 1, NULL, 0);
-   
+
                 /* sometimes it is really handy to be able to debug things
                 * and still get a connection!
                 */
@@ -631,7 +631,7 @@ X509_STORE_CTX *ctx;
 #ifdef NT
                 if (ok) {
                     /* if the user decides to accept the certificate
-                     * offer to store it for future connections in 
+                     * offer to store it for future connections in
                      * the user's private store
                      */
                     ok = uq_ok(
@@ -1100,7 +1100,7 @@ int verbose;
             cipher_list="<NULL>";
         printf("[TLS - shared ciphers=%s]\r\n",
                 cipher_list);
-        }       
+        }
     if ( server || tn_deb ) {
         peer=SSL_get_peer_certificate(ssl_con);
         if (peer != NULL) {
@@ -1380,7 +1380,7 @@ ssl_once_init()
     debug(F110,"OpenSSL Library",SSLeay_version(SSLEAY_PLATFORM),0);
 
     /* The following test is suggested by Richard Levitte */
-    if (((OPENSSL_VERSION_NUMBER ^ SSLeay()) & 0xffffff0f) 
+    if (((OPENSSL_VERSION_NUMBER ^ SSLeay()) & 0xffffff0f)
 #ifdef OS2
          || ckstrcmp(OPENSSL_VERSION_TEXT,(char *)SSLeay_version(SSLEAY_VERSION),-1,1)
 #endif /* OS2 */
@@ -1391,7 +1391,7 @@ ssl_once_init()
         printf("?OpenSSL libraries do not match required version:\r\n");
         printf("  . C-Kermit built with %s\r\n",OPENSSL_VERSION_TEXT);
         printf("  . Version found  %s\r\n",SSLeay_version(SSLEAY_VERSION));
-        printf("  OpenSSL versions prior to 1.0.0 must be the same.\r\n");    
+        printf("  OpenSSL versions prior to 1.0.0 must be the same.\r\n");
 
 	s = "R";
 #ifdef SOLARIS
@@ -1816,7 +1816,7 @@ ssl_tn_init(mode) int mode;
         char path[CKMAXPATH];
 
         ckmakmsg(path,CKMAXPATH,exedir,"certs",NULL,NULL);
-        if (isdir(path) && 
+        if (isdir(path) &&
             SSL_CTX_load_verify_locations(tls_ctx,NULL,path) == 1)  {
             debug(F110,"ssl_tn_init certificate verify dir",path,0);
             if (ssl_debug_flag)
@@ -1840,7 +1840,7 @@ ssl_tn_init(mode) int mode;
             SSL_CTX_load_verify_locations(ssl_ctx,NULL,path);
         }
         ckmakmsg(path,CKMAXPATH,exedir,"ca_certs.pem",NULL,NULL);
-        if (zchki(path) > 0 && 
+        if (zchki(path) > 0 &&
             SSL_CTX_load_verify_locations(tls_ctx,path,NULL) == 1) {
             debug(F110,"ssl_tn_init certificate verify file",path,0);
             if (ssl_debug_flag)
@@ -1848,7 +1848,7 @@ ssl_tn_init(mode) int mode;
             SSL_CTX_load_verify_locations(ssl_ctx,path,NULL);
         }
         ckmakmsg(path,CKMAXPATH,GetAppData(1),"kermit 95/ca_certs.pem",NULL,NULL);
-        if (zchki(path) > 0 && 
+        if (zchki(path) > 0 &&
             SSL_CTX_load_verify_locations(tls_ctx,path,NULL) == 1) {
             debug(F110,"ssl_tn_init certificate verify file",path,0);
             if (ssl_debug_flag)
@@ -1856,7 +1856,7 @@ ssl_tn_init(mode) int mode;
             SSL_CTX_load_verify_locations(ssl_ctx,path,NULL);
         }
         ckmakmsg(path,CKMAXPATH,GetAppData(0),"kermit 95/ca_certs.pem",NULL,NULL);
-        if (zchki(path) > 0 && 
+        if (zchki(path) > 0 &&
             SSL_CTX_load_verify_locations(tls_ctx,path,NULL) == 1) {
             debug(F110,"ssl_tn_init certificate verify file",path,0);
             if (ssl_debug_flag)
@@ -1870,7 +1870,7 @@ ssl_tn_init(mode) int mode;
         char path[CKMAXPATH];
 
         ckmakmsg(path,CKMAXPATH,exedir,"certs",NULL,NULL);
-        if (isdir(path) && 
+        if (isdir(path) &&
             SSL_CTX_load_verify_locations(tls_ctx,NULL,path) == 1)  {
             debug(F110,"ssl_tn_init certificate verify dir",path,0);
             if (ssl_debug_flag)
@@ -1878,7 +1878,7 @@ ssl_tn_init(mode) int mode;
             SSL_CTX_load_verify_locations(ssl_ctx,NULL,path);
         }
         ckmakmsg(path,CKMAXPATH,exedir,"ca_certs.pem",NULL,NULL);
-        if (zchki(path) > 0 && 
+        if (zchki(path) > 0 &&
             SSL_CTX_load_verify_locations(tls_ctx,path,NULL) == 1) {
             debug(F110,"ssl_tn_init certificate verify file",path,0);
             if (ssl_debug_flag)
@@ -1893,7 +1893,7 @@ ssl_tn_init(mode) int mode;
 #endif /* OS2 */
 
     if (ssl_verify_file) {
-        if (zchki(ssl_verify_file) > 0 && 
+        if (zchki(ssl_verify_file) > 0 &&
             SSL_CTX_load_verify_locations(tls_ctx,ssl_verify_file,NULL) == 1) {
             debug(F110,"ssl_tn_init certificate verify file",ssl_verify_file,0);
             if (ssl_debug_flag)
@@ -1944,23 +1944,23 @@ ssl_tn_init(mode) int mode;
         }
 #ifdef NT
         ckmakmsg(path,CKMAXPATH,GetAppData(1),"kermit 95/crls",NULL,NULL);
-        if (isdir(path) && 
+        if (isdir(path) &&
             X509_STORE_load_locations(crl_store,NULL,path) == 1) {
             debug(F110,"ssl_tn_init crl dir",path,0);
             if (ssl_debug_flag)
                 printf("  CRL Directory: %s\r\n",path);
         }
         ckmakmsg(path,CKMAXPATH,GetAppData(0),"kermit 95/crls",NULL,NULL);
-        if (isdir(path) && 
+        if (isdir(path) &&
             X509_STORE_load_locations(crl_store,NULL,path) == 1) {
             debug(F110,"ssl_tn_init crl dir",path,0);
             if (ssl_debug_flag)
                 printf("  CRL Directory: %s\r\n",path);
         }
 #endif /* NT */
-        
+
         ckmakmsg(path,CKMAXPATH,exedir,"ca_crls.pem",NULL,NULL);
-        if (zchki(path) > 0 && 
+        if (zchki(path) > 0 &&
             X509_STORE_load_locations(crl_store,path,NULL) == 1) {
             debug(F110,"ssl_tn_init crl file",path,0);
             if (ssl_debug_flag)
@@ -1968,14 +1968,14 @@ ssl_tn_init(mode) int mode;
         }
 #ifdef NT
         ckmakmsg(path,CKMAXPATH,GetAppData(1),"kermit 95/ca_crls.pem",NULL,NULL);
-        if (zchki(path) > 0 && 
+        if (zchki(path) > 0 &&
             X509_STORE_load_locations(crl_store,path,NULL) == 1) {
             debug(F110,"ssl_tn_init crl file",path,0);
             if (ssl_debug_flag)
                 printf("  CRL File: %s\r\n",path);
         }
         ckmakmsg(path,CKMAXPATH,GetAppData(0),"kermit 95/ca_crls.pem",NULL,NULL);
-        if (zchki(path) > 0 && 
+        if (zchki(path) > 0 &&
             X509_STORE_load_locations(crl_store,path,NULL) == 1) {
             debug(F110,"ssl_tn_init crl file",path,0);
             if (ssl_debug_flag)
@@ -1985,7 +1985,7 @@ ssl_tn_init(mode) int mode;
 #endif /* OS2 */
 
         if (ssl_crl_file || ssl_crl_dir) {
-            if (ssl_crl_file && zchki(ssl_crl_file) > 0 && 
+            if (ssl_crl_file && zchki(ssl_crl_file) > 0 &&
                 X509_STORE_load_locations(crl_store,ssl_crl_file,NULL) == 1) {
                 debug(F110,"ssl_tn_init crl file",ssl_crl_file,0);
                 if (ssl_debug_flag)
@@ -1997,7 +1997,7 @@ ssl_tn_init(mode) int mode;
                 if (ssl_debug_flag)
                     printf("  CRL Directory: %s\r\n",ssl_crl_dir);
             }
-        } 
+        }
 #ifndef OS2
         else {
             X509_STORE_set_default_paths(crl_store);
@@ -2318,7 +2318,7 @@ ssl_http_init(hostname) char * hostname;
                 printf("?Unable to load crl-dir: %s\r\n",path);
         }
 #endif /* NT */
-        
+
         ckmakmsg(path,CKMAXPATH,exedir,"ca_crls.pem",NULL,NULL);
         if (X509_STORE_load_locations(crl_store,path,NULL) == 0) {
             debug(F110,"ssl_http_init unable to load file",path,0);
@@ -2858,7 +2858,7 @@ show_hostname_warning(char *s1, char *s2)
     int ok = 1;
     setverbosity();
     ckmakxmsg(prefix,1024,
-              "Warning: Hostname (\"", s1, 
+              "Warning: Hostname (\"", s1,
               "\") does not match server's certificate (\"", s2, "\")",
               NULL,NULL,NULL,NULL,NULL,NULL,NULL);
     if (ssl_verify_flag)
@@ -3017,7 +3017,7 @@ ssl_check_server_name(SSL * ssl, char * hostname)
                 return 0;
         }
         rv = show_hostname_warning(hostname,
-				   (char *)((dNSName[i - 1] == NULL) ? 
+				   (char *)((dNSName[i - 1] == NULL) ?
 			           (char *)"UNKNOWN" : (char *)dNSName[i - 1]))
 	     ? 0 : -1;
         for (i = 0; dNSName[i]; i++)
@@ -3825,7 +3825,7 @@ ck_ssl_incoming(fd) int fd;
             X509_NAME_get_text_by_NID(X509_get_subject_name(peer),
 #ifndef NID_x500UniqueIdentifier
                                        NID_uniqueIdentifier,
-#else   
+#else
                                        NID_x500UniqueIdentifier,
 #endif
                                        str,256
@@ -3907,7 +3907,7 @@ ck_ssl_outgoing(fd) int fd;
             return(-1);
         } else {
             tls_active_flag = 1;
-            if ( !ssl_certsok_flag && (ssl_verify_flag & SSL_VERIFY_PEER) && 
+            if ( !ssl_certsok_flag && (ssl_verify_flag & SSL_VERIFY_PEER) &&
                  !tls_is_krb5(0) ) {
                 char *subject = ssl_get_subject_name(tls_con);
 
@@ -4151,7 +4151,7 @@ ck_ssl_renegotiate_ciphers()
 }
 
 #ifdef NT
-int 
+int
 ck_X509_save_cert_to_user_store(X509 *cert)
 {
 #ifdef X509V3_EXT_DUMP_UNKNOWN
@@ -4167,7 +4167,7 @@ ck_X509_save_cert_to_user_store(X509 *cert)
     ckmakmsg(path,CKMAXPATH,GetAppData(0),"kermit 95/certs/",
              hash,".0");
 
-    
+
     out=BIO_new(BIO_s_file());
     if (out == NULL)
     {

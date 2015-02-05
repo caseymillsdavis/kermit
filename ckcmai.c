@@ -2614,7 +2614,7 @@ makever() {                             /* Make version string from pieces */
         return;
     }
     x += y + 1;
-  
+
     s = " OPEN SOURCE:";		/* C-Kermit 9.0 and later */
     y = strlen(s);
     if (CKVERLEN < x + y + 1)

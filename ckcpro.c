@@ -2806,7 +2806,7 @@ srv_login() {
 			x_logged = 1;
 		      debug(F101,"REMOTE LOGIN 4","",x_logged);
 		  }
-#ifdef CK_LOGIN 
+#ifdef CK_LOGIN
                 else {
 		    x_logged = ckxlogin((CHAR *)f1,(CHAR *)f2,NULL,0);
 		    debug(F101,"REMOTE LOGIN 5","",x_logged);

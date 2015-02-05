@@ -1679,7 +1679,7 @@ getptyslave(fd, fc) int * fd, fc; {
 #else /* HPUX */
 #ifdef USE_TERMIO
 	/*
-	  Settings for all other termios/termio based systems, other than 
+	  Settings for all other termios/termio based systems, other than
 	  4.4BSD.  In 4.4BSD the kernel does the initial terminal setup.
 	*/
 #ifdef BSD42
@@ -1815,7 +1815,7 @@ exec_cmd(s) char * s; {
 
     args = q->a_head + 1;
 
-#ifdef DEBUG    
+#ifdef DEBUG
     {
 	int i, n;
 	n = q->a_size;
@@ -1832,7 +1832,7 @@ exec_cmd(s) char * s; {
 		}
 
 	    }
-	}	    
+	}
     }
 #endif	/* DEBUG */
 

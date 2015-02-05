@@ -827,14 +827,14 @@ int asktimedout = 0;
 
 static struct keytab asktab[] = {
     {  "/default", ASK_DEF, CM_ARG },
-    {  "/gui",     ASK_GUI,      
+    {  "/gui",     ASK_GUI,
 #ifdef KUI
            0
 #else /* KUI */
            CM_INV
 #endif /* KUI */
     },
-    { "/popup",    ASK_PUP,   
+    { "/popup",    ASK_PUP,
 #ifdef OS2
            0
 #else /* OS2 */
@@ -850,7 +850,7 @@ static int nasktab = sizeof(asktab)/sizeof(struct keytab)-1;
 static struct keytab askqtab[] = {
     { "/default",  ASK_DEF, CM_ARG },
     { "/echo",     ASK_ECH, CM_ARG },
-    { "/gui",      ASK_GUI,      
+    { "/gui",      ASK_GUI,
 #ifdef KUI
            0
 #else /* KUI */
@@ -858,7 +858,7 @@ static struct keytab askqtab[] = {
 #endif /* KUI */
     },
     { "/noecho",   ASK_QUI, CM_INV },
-    { "/popup",    ASK_PUP,   
+    { "/popup",    ASK_PUP,
 #ifdef OS2
            0
 #else /* OS2 */
@@ -891,7 +891,7 @@ doask(cx) int cx; {
 
     char vnambuf[VNAML+1];              /* Buffer for variable names */
     char *vnp = NULL;                   /* Pointer to same */
-    
+
     dfbuf[0] = NUL;
     vnambuf[0] = NUL;
 
@@ -2838,7 +2838,7 @@ dodial(cx) int cx; {                    /* DIAL or REDIAL */
             dialsta = DIA_NOLI;
             return(success = 0);
         }
-        if ((!network 
+        if ((!network
 #ifdef TN_COMPORT
               || istncomport()
 #endif /* TN_COMPORT */
@@ -3194,7 +3194,7 @@ Disabling flow control temporarily %s...\n",
 		    if (x && atmbuf[0]) { /* They gave a new one */
 			s = atmbuf;
 			makestr(&(dn_p2[j]), s);
-		    }			
+		    }
 
 #else  /* COMMENT */
 
@@ -4095,7 +4095,7 @@ dotype(file, paging, first, head, pat, width, prefix, incs, outcs, outfile, z)
                 gui_text_popup_append(uch[i]);
 			gui_text_popup_append(CR);
 			gui_text_popup_append(LF);
-        } 
+        }
         else
 #endif /* KUI */
         typeline(buf,len,outcs,ofp);    /* Print line, length based */
@@ -4942,7 +4942,7 @@ domydir(cx) int cx; {			/* Internal DIRECTORY command */
     } else if (cx == XXTOUC) {
 	touch = 1;
 	verbose = 0;
-    }	
+    }
 
 #ifdef CK_TTGWSIZ
 #ifdef OS2
@@ -5010,7 +5010,7 @@ domydir(cx) int cx; {			/* Internal DIRECTORY command */
         x = cmfdb(&sw);                 /* Parse something */
         debug(F101,"domydir cmfdb","",x);
         if (x < 0)
-          return(x); 
+          return(x);
         if (cmresult.fcode != _CMKEY)   /* Break out if not a switch */
           break;
         c = cmgbrk();
@@ -5245,7 +5245,7 @@ domydir(cx) int cx; {			/* Internal DIRECTORY command */
     ckstrncpy(line,cmresult.sresult,LINBUFSIZ); /* Safe copy of filespec */
 
 /* ^^^ START MULTIPLE */
-    
+
     while (!touch) {
 	x = cmfld("Another filespec or Enter","",&s,xxstring);
 	if (x == -3)
@@ -7671,7 +7671,7 @@ _PROTOTYP(int zcmpfn,(char *, char *));
 
 #ifndef NOFRILLS
 #ifdef NT
-int 
+int
 dolink() {
     /* Parse a file or a directory name */
     int i, x, z, listing = 0, havename = 0, wild = 0, rc = 1;
@@ -8201,7 +8201,7 @@ docopy() {
                 if (listing)
                   printf("(FAILED: Source and destination identical)\n");
 		else if (!nolist)
-                  printf("?Source and destination identical - %s\n", line); 
+                  printf("?Source and destination identical - %s\n", line);
                 rc = 0;
                 continue;
             }
@@ -8509,7 +8509,7 @@ gnirts(s1, s2, len) char * s1, * s2; int len; {
   Worker function to rename one file for dorenam() (below).
     old        = name of file or directory to be renamed
     new        = new name (not required for /UPPER, /LOWER, and /REPLACE)
-    replacing  = 1 if doing string replacement on the name  
+    replacing  = 1 if doing string replacement on the name
     casing     = 1 if converting name to lowercase, 2 if to uppercase
     all        = if doing case conversion on all names, not just monocase ones
     converting = 1 if converting character sets
@@ -8557,7 +8557,7 @@ renameone(old,new,
     int minus = 0;			/* Occurrence is negative */
     int allbut = 0;			/* Occurrence is "all but" */
     int arg2isfile = 0;			/* Arg2 ("new") is a filename */
-    
+
     debug(F110,"RENAMEONE old",old,0);
     debug(F110,"RENAMEONE new",new,0);
     debug(F110,"RENAMEONE ren_sub[0]",ren_sub[0],0);
@@ -8607,7 +8607,7 @@ renameone(old,new,
 	    ckstrncpy(dir,new,CKMAXPATH); /* put it here */
 	} else {			/* otherwise */
 	    arg2isfile++;		/* flag that it's a filename */
-	}    
+	}
     }
     if (!casing && !replacing && !converting) {
 	if (!*new)
@@ -8623,7 +8623,7 @@ renameone(old,new,
 #else
 		ckmakmsg(buf,size,new, old, NULL, NULL);
 #endif	/* VMS */
-		debug(F110,"RENAMEONE new new",new,0);		
+		debug(F110,"RENAMEONE new new",new,0);
 		new = buf;
 		size = CKMAXPATH;
 	    }
@@ -8724,17 +8724,17 @@ renameone(old,new,
 		if (s0) {
 		    (VOID) gnirts(bp[0],s0,len0+1);
 		    bp[0] = s0;
-		} else return(0); 
+		} else return(0);
 		s1 = (char *)malloc(len1+1); /* Reverse target string */
 		if (s1) {
 		    (VOID) gnirts(bp[1],s1,len1+1);
 		    bp[1] = s1;
-		} else return(0); 
+		} else return(0);
 		s2 = (char *)malloc(len2+1); /* Reverse replacement string */
 		if (s2) {
 		    (VOID) gnirts(bp[2],s2,len2+1);
 		    bp[2] = s2;
-		} else return(0); 
+		} else return(0);
 		debug(F111,"RENAMEONE s0",s0,len0);
 		debug(F111,"RENAMEONE s1",s1,len1);
 		debug(F111,"RENAMEONE s2",s2,len2);
@@ -8847,8 +8847,8 @@ renameone(old,new,
 	}
     }
     debug(F110,"RENAMEONE new",new,0);
-    debug(F101,"RENAMEONE flag","",flag);	
-    debug(F101,"RENAMEONE skip","",skip);	
+    debug(F101,"RENAMEONE flag","",flag);
+    debug(F101,"RENAMEONE skip","",skip);
     debug(F100,"RENAMEONE ----------------","",0);
 
     if (skip == 3) {
@@ -9241,7 +9241,7 @@ dorenam() {
           znext(line);
         if (!line[0])
           break;
-	rc = renameone((char *)line,p, 
+	rc = renameone((char *)line,p,
 		       replacing,casing,all,converting,cset1,cset2,
 		       listing,nolist,sim,TMPBUFSIZ,collision);
     }
@@ -10881,7 +10881,7 @@ boolexp(cx) int cx; {
   IF condition without having to enclose it in \m(...).
 */
 	  if (
-#ifdef FNFLOAT	  
+#ifdef FNFLOAT
 	      !isfloat(cmresult.sresult,0) /* Not a number */
 #else
 	      !chknum(cmresult.sresult) /* Not a number */

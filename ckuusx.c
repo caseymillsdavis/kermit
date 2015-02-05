@@ -415,7 +415,7 @@ extern int server, bctu, rptflg, ebqflg, spsiz, urpsiz, wmax, czseen, cxseen,
   rpackets, fncnv, bye_active, discard, inserver, diractive, cdactive;
 
 extern long filcnt, filrej, rptn, filcps, tfcps, cps, peakcps;
-extern CK_OFF_T ffc, tfc, fsize; 
+extern CK_OFF_T ffc, tfc, fsize;
 
 long oldcps = 0L;
 
@@ -505,7 +505,7 @@ shoesc(escape) int escape; {
 	printf(" Escape character: Code %d",escape);
 	if (escape > 160 && escape < 256)
 	  printf(" (%c)",escape);
-	printf(": %s\r\n", tt_escape ? "enabled" : "disabled");	
+	printf(": %s\r\n", tt_escape ? "enabled" : "disabled");
     }
     return(0);
 }
@@ -1597,7 +1597,7 @@ scanfile(name,flag,nscanfile) char * name; int * flag, nscanfile; {
 #endif /* DEBUG */
 		binary = 1;
 		break;
-	    } 
+	    }
 #endif /* NOPCLSCAN */
 #ifndef NOPJLSCAN
 	      else if (buf[0] == '\033' && (buf[1] == 'E' || buf[1] == '%')) {
@@ -3148,7 +3148,7 @@ trap(sig) int sig;
 	debug(F100,"*********************","",0);
 	if (sig == SIGINT)
 	  debug(F101,"trap caught SIGINT","",sig);
-	else 
+	else
 	  debug(F101,"trap caught signal","",sig);
 	debug(F100,"*********************","",0);
     }
@@ -4759,7 +4759,7 @@ doclean(fc) int fc; {                   /* General cleanup */
     if (local && exithangup) {		/* Close communication connection */
         extern int haslock;
 	int x;
-	
+
 	x = ttchk();
 	debug(F101,"doclean ttchk()","",x);
 #ifdef OS2ORUNIX

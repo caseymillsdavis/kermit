@@ -1962,7 +1962,7 @@ getncm(s,n) char *s; int n; {
 		    /* Next char is command separator... */
 		    /* Sun May 11 17:24:12 2003 */
 		    (kp < 1 && pp < 1 && (*(macp[maclvl]+1) == ','))
-		    )		     
+		    )
                   dq = 0;		/* Close the quote */
             } else if (dq == 0) {
                 /* Open quote only if at beginning or preceded by space */
@@ -2445,7 +2445,7 @@ cmderr() {
 
 	  case 3:
 	    printf("Command stack:\n");
-	    shostack();			    
+	    shostack();
 	}
     }
 }
@@ -3536,7 +3536,7 @@ dooutput(s, cx) char *s; int cx; {
 #endif /* NOLOCAL */
     }
 #ifdef SSHBUILTIN
-    if ( network && nettype == NET_SSH && ssh_cas && ssh_cmd && 
+    if ( network && nettype == NET_SSH && ssh_cas && ssh_cmd &&
          !(strcmp(ssh_cmd,"kermit") && strcmp(ssh_cmd,"sftp"))) {
         if (!quiet)
             printf("?SSH Subsystem active: %s\n", ssh_cmd);
@@ -3825,7 +3825,7 @@ herald() {
     krb4 = "";
     krb5 = "";
 #ifdef CK_AUTHENTICATION
-#ifdef CK_SSL    
+#ifdef CK_SSL
     ssl = "+SSL";
 #endif	/* CK_SSL */
 #ifdef KRB4
@@ -5536,7 +5536,7 @@ shotabs() {
                 n = (j+2)/100;
                 if (n)
 		  printf("%d",n);
-                else 
+                else
 		  printf("%c",'.');
                 break;
 	      case 9:
@@ -5545,7 +5545,7 @@ shotabs() {
 		  printf("%d",n);
                 else if (j>90)
 		  printf("0");
-                else 
+                else
 		  printf("%c",'.');
                 break;
 	      case 0:
@@ -5705,9 +5705,9 @@ shotrm() {
     if (++lines > cmd_rows - 3) { if (!askmore()) return; else lines = 0; }
     printf(" %19s: %-13s  %13s: %-15s\n","Cursor",
 #ifdef KUI
-	    (tt_cursor == 2) ? (tt_cursor_blink ? 
+	    (tt_cursor == 2) ? (tt_cursor_blink ?
 				 "full (*)" : "full (.)") :
-	    (tt_cursor == 1) ? (tt_cursor_blink ? 
+	    (tt_cursor == 1) ? (tt_cursor_blink ?
 				 "half (*)" : "half (.)") :
 	    (tt_cursor_blink ? "underline (*)" : "underline (.)"),
 #else /* KUI */
@@ -5716,8 +5716,8 @@ shotrm() {
 #endif /* KUI */
 #ifdef CK_AUTODL
            "autodownload",autodl == TAD_ON ?
-           (adl_err ? "on, error stop" : "on, error continue") : 
-           autodl == TAD_ASK ? 
+           (adl_err ? "on, error stop" : "on, error continue") :
+           autodl == TAD_ASK ?
            (adl_err ? "ask, error stop" : "ask, error continue") :
            "off"
 #else /* CK_AUTODL */
@@ -5954,7 +5954,7 @@ shotrm() {
         printf(
 	    " Attribute:  \
 blink: %-3s  dim: %-3s  italic: %-3s  reverse: %-3s  underline: %-3s\n",
-	    trueblink?"on":"off", truedim?"on":"off", trueitalic?"on":"off", 
+	    trueblink?"on":"off", truedim?"on":"off", trueitalic?"on":"off",
 	    truereverse?"on":"off", trueunderline?"on":"off");
         if (++lines > cmd_rows - 3) { if (!askmore()) return; else lines = 0; }
     }
@@ -8693,7 +8693,7 @@ xarray(s) char * s; {
   Returns:
    -1 on failure
     0 on success
-*/      
+*/
 
 int
 #ifdef CK_ANSIC
@@ -8732,7 +8732,7 @@ boundspair(s,sep,lo,hi,zz) char *s, *sep, *zz; int *lo, *hi;
 	    s2 = ckstrchr(sep,*p);	/* Check for separator */
 	    if (s2) {
 		debug(F000,"boundspair *s2","",*s2);
-		if (c) {        
+		if (c) {
 		    debug(F000,"boundspair","Too many separators",*s2);
 		    makestr(&tmp,NULL);
 		    return(-1);

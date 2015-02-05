@@ -1361,7 +1361,7 @@ conect() {
     signal(SIGQUIT, SIG_IGN);
 
     debug(F101,"CONNECT carrier-watch","",carrier);
-    if ((!network 
+    if ((!network
 #ifdef TN_COMPORT
         || istncomport()
 #endif /* TN_COMPORT */
@@ -1788,7 +1788,7 @@ conect() {
 		    outxcount = b_to_u((CHAR)c,outxbuf,OUTXBUFSIZ,tcssize);
 		    outxbuf[outxcount] = NUL;
 		} else if (unicode == 2) { /* Local is UTF-8 */
-		    
+
 		    x = u_to_b((CHAR)c);
 		    if (x < 0)
 		      continue;
@@ -2626,7 +2626,7 @@ doesc(c) char c;
 	    conoll(temp);
             if (hwparity)
               sprintf(temp," Parity[hardware]: %s",parnam(hwparity));
-            else	    
+            else
               sprintf(temp," Parity: %s", parnam(parity));
 	    conoll(temp);
 #ifndef NOXFER
