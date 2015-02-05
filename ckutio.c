@@ -7630,21 +7630,11 @@ ttsspd(cps) int cps; {
       case 11520: s = B115200; break;
 #endif /* B115200 */
 #endif /* OLINUXHISPEED */
-#ifdef B153600
-      case 15360: s = B153600; break;
-#endif /* B153600 */
-#ifdef B230400
-      case 23040: s = B230400; break;
-#endif /* B230400 */
-#ifdef B307200
-      case 30720: s = B307200; break;
-#endif /* B307200 */
-#ifdef B460800
-      case 46080: s = B460800; break;
-#endif /* 460800 */
-#ifdef B921600
-      case 92160: s = B921600; break;
-#endif /* B921600 */
+      case 15360: s = 153600; break;
+      case 23040: s = 230400; break;
+      case 30720: s = 307200; break;
+      case 46080: s = 460800; break;
+      case 92160: s = 921600; break;
 #endif /* HPUX */
       default:
 	ok = 0;				/* Good speed not found, so not ok */
@@ -8203,22 +8193,12 @@ ttgspd() {				/* Get current serial device speed */
 #ifdef B115200
       case B115200: ss = 115200L; break;
 #endif /* B115200 */
-#ifdef B153600
-      case B153600: ss = 153600L; break;
-#endif /* B153600 */
-#ifdef B230400
-      case B230400: ss = 230400L; break;
-#endif /* B230400 */
-#ifdef B307200
-      case B307200: ss = 307200L; break;
-#endif /* B307200 */
-#ifdef B460800
-      case B460800: ss = 460800L; break;
-#endif /* B460800 */
+      case 153600: ss = 153600L; break;
+      case 230400: ss = 230400L; break;
+      case 307200: ss = 307200L; break;
+      case 460800: ss = 460800L; break;
 #endif /* HPUX */
-#ifdef B921600
-      case B921600: ss = 921600L; break;
-#endif /* B921600 */
+      case 921600: ss = 921600L; break;
       default:
 	ss = -1; break;
     }
